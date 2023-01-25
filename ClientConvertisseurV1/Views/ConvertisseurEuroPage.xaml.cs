@@ -52,7 +52,11 @@ namespace ClientConvertisseurV1.Views
         public ObservableCollection<Devise> LesDevises
         {
             get { return lesDevises; }
-            set { lesDevises = value; }
+            set 
+            { 
+                lesDevises = value;
+                OnPropertyChanged(nameof(LesDevises));
+            }
         }
 
         private double montantEuros;
@@ -92,15 +96,26 @@ namespace ClientConvertisseurV1.Views
         {
             WSService service = new WSService("https://localhost:44394/api/");
             List<Devise> result = await service.GetDevisesAsync("devises");
-            if (LesDevises == null)
-                Console.WriteLine("a");
+            if (result == null)
+                MessageBoxAsync("API non disponible !", "Error !");
             else
                 LesDevises = new ObservableCollection<Devise>(result);
         }
 
+        private async void MessageBoxAsync(string content, string title)
+        {
+            ContentDialog dialog = new ContentDialog();
+            dialog.Title = title;
+            dialog.Content = content;
+            dialog.CloseButtonText = "OK";
+
+
+            ContentDialogResult result = await dialog.ShowAsync();
+        }
+
         protected void onBtnConvertir_Click(object sender, RoutedEventArgs e)
         {
-            
+            MontantDevise = MontantEuros * Devise.Taux;
         }
     }
 }
