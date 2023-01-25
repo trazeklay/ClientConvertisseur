@@ -26,14 +26,18 @@ namespace ClientConvertisseurV1
     /// </summary>
     public sealed partial class MainWindow : Window
     {
+        private bool _isClicked;
+
         public MainWindow()
         {
             this.InitializeComponent();
+            _isClicked = false;
         }
 
         private void myButton_Click(object sender, RoutedEventArgs e)
         {
-            myButton.Content = "Clicked";
+            _isClicked = !_isClicked;
+            myButton.Content = _isClicked ? "Clicked" : "Click me";
         }
     }
 }
