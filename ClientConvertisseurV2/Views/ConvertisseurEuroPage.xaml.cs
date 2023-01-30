@@ -1,15 +1,10 @@
 // Copyright (c) Microsoft Corporation and Contributors.
 // Licensed under the MIT License.
 
-using ClientConvertisseurV1.Models;
-using ClientConvertisseurV1.Services;
+using ClientConvertisseurV2.Models;
+using ClientConvertisseurV2.Services;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Controls.Primitives;
-using Microsoft.UI.Xaml.Data;
-using Microsoft.UI.Xaml.Input;
-using Microsoft.UI.Xaml.Media;
-using Microsoft.UI.Xaml.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,7 +19,7 @@ using Windows.UI.Popups;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
-namespace ClientConvertisseurV1.Views
+namespace ClientConvertisseurV2.Views
 {
     /// <summary>
     /// La page qui convertit un montant en euros en un montant dans la devise sélectionnée
