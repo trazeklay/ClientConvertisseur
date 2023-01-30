@@ -116,7 +116,7 @@ namespace ClientConvertisseurV1.Views
 
         protected void onBtnConvertir_Click(object sender, RoutedEventArgs e)
         {
-            if (MontantDevise <= 0)
+            if (MontantEuros <= 0)
                 MessageBoxAsync("Le montant initial doit être supérieur à 0", "Error !");
             else if(Devise is null)
                 MessageBoxAsync("Veuillez sélectionner une devise", "Error !");
