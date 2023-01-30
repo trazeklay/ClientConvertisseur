@@ -12,7 +12,6 @@
     mc:Ignorable="d">
 
     <RelativePanel x:Name="grdMain">
-
         <TextBlock
             x:Name="tbkMontantEnEuros"
             Width="300"
@@ -83,6 +82,5 @@
             RelativePanel.AlignHorizontalCenterWithPanel="True"
             RelativePanel.Below="tbkMontantEnDevises"
             Text="{Binding Path=MontantDevise, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-
     </RelativePanel>
 </Page>
