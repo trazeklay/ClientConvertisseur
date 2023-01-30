@@ -60,7 +60,7 @@
             Grid.Row="4"
             Width="300"
             Margin="0,25"
-            Command="{Binding btnSetConversion}"
+            Command="{Binding BtnSetConversion}"
             Content="Convertir"
             FontSize="25"
             RelativePanel.AlignHorizontalCenterWithPanel="True"

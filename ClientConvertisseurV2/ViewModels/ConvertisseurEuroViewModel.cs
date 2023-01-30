@@ -34,7 +34,7 @@ namespace ClientConvertisseurV2.ViewModels
             set
             {
                 lesDevises = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(LesDevises));
             }
         }
 
@@ -45,7 +45,7 @@ namespace ClientConvertisseurV2.ViewModels
             set
             {
                 montantEuros = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(MontantEuros));
             }
         }
 
@@ -56,7 +56,7 @@ namespace ClientConvertisseurV2.ViewModels
             set
             {
                 devise = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(Devise));
             }
         }
 
@@ -75,7 +75,7 @@ namespace ClientConvertisseurV2.ViewModels
 
         public ConvertisseurEuroViewModel()
         {
-
+            this.GetDataOnLoadAsync();
             BtnSetConversion = new RelayCommand(ActionSetConversion);
         }
 
@@ -91,7 +91,7 @@ namespace ClientConvertisseurV2.ViewModels
 
         public async void GetDataOnLoadAsync()
         {
-            WSService service = new WSService("https://localhost:44394/api/");
+            WSService service = new WSService("https://loalhost:44394/api/");
             List<Devise> result = await service.GetDevisesAsync("devises");
             if (result == null)
                 MessageBoxAsync("API non disponible !", "Error !");

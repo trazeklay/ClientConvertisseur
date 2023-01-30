@@ -16,7 +16,6 @@ namespace ClientConvertisseurV2.ViewModels
 {
     public class ConvertisseurDeviseViewModel: ObservableObject, INotifyPropertyChanged
     {
-
         public event PropertyChangedEventHandler? PropertyChanged;
         private void OnPropertyChanged(string name)
         {
@@ -34,7 +33,7 @@ namespace ClientConvertisseurV2.ViewModels
             set
             {
                 lesDevises = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(LesDevises));
             }
         }
 
@@ -45,7 +44,7 @@ namespace ClientConvertisseurV2.ViewModels
             set
             {
                 montantEuros = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(MontantEuros));
             }
         }
 
@@ -56,7 +55,7 @@ namespace ClientConvertisseurV2.ViewModels
             set
             {
                 devise = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(Devise));
             }
         }
 
@@ -67,7 +66,7 @@ namespace ClientConvertisseurV2.ViewModels
             set
             {
                 montantDevise = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(MontantDevise));
             }
         }
 
@@ -75,7 +74,7 @@ namespace ClientConvertisseurV2.ViewModels
 
         public ConvertisseurDeviseViewModel()
         {
-
+            this.GetDataOnLoadAsync();
             BtnSetConversion = new RelayCommand(ActionSetConversion);
         }
 
@@ -86,7 +85,7 @@ namespace ClientConvertisseurV2.ViewModels
             else if (Devise is null)
                 MessageBoxAsync("Veuillez sélectionner une devise", "Error !");
             else
-                MontantDevise = MontantEuros / Devise.Taux;
+                MontantDevise = MontantEuros * Devise.Taux;
         }
 
         public async void GetDataOnLoadAsync()
