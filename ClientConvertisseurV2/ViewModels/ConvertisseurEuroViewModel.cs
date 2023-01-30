@@ -79,7 +79,7 @@ namespace ClientConvertisseurV2.ViewModels
             BtnSetConversion = new RelayCommand(ActionSetConversion);
         }
 
-        private void ActionSetConversion()
+        public void ActionSetConversion()
         {
             if (MontantEuros <= 0)
                 MessageBoxAsync("Le montant initial doit être supérieur à 0", "Error !");
@@ -89,7 +89,7 @@ namespace ClientConvertisseurV2.ViewModels
                 MontantDevise = MontantEuros * Devise.Taux;
         }
 
-        private async void GetDataOnLoadAsync()
+        public async void GetDataOnLoadAsync()
         {
             WSService service = new WSService("https://localhost:44394/api/");
             List<Devise> result = await service.GetDevisesAsync("devises");
