@@ -44,6 +44,7 @@ namespace ClientConvertisseurV2
             Ioc.Default.ConfigureServices(
                 new ServiceCollection()
                 .AddSingleton<ConvertisseurEuroViewModel>()
+                .AddSingleton<ConvertisseurDeviseViewModel>()
                 .BuildServiceProvider()
             );
         }
@@ -70,6 +71,11 @@ namespace ClientConvertisseurV2
         public ConvertisseurEuroViewModel ConvertisseurEuroVM
         {
             get { return Ioc.Default.GetService<ConvertisseurEuroViewModel>(); }
+        }
+
+        public ConvertisseurDeviseViewModel ConvertisseurDeviseVM
+        {
+            get { return Ioc.Default.GetService<ConvertisseurDeviseViewModel>(); }
         }
     }
 }

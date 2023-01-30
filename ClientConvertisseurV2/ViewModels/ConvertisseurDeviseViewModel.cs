@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,12 +11,12 @@ using System.Threading.Tasks;
 
 using ClientConvertisseurV2.Models;
 using ClientConvertisseurV2.Services;
-using CommunityToolkit.Mvvm.Input;
 
 namespace ClientConvertisseurV2.ViewModels
 {
-    public class ConvertisseurEuroViewModel: ObservableObject, INotifyPropertyChanged
+    public class ConvertisseurDeviseViewModel: ObservableObject, INotifyPropertyChanged
     {
+
         public event PropertyChangedEventHandler? PropertyChanged;
         private void OnPropertyChanged(string name)
         {
@@ -73,7 +73,7 @@ namespace ClientConvertisseurV2.ViewModels
 
         public IRelayCommand BtnSetConversion { get; }
 
-        public ConvertisseurEuroViewModel()
+        public ConvertisseurDeviseViewModel()
         {
 
             BtnSetConversion = new RelayCommand(ActionSetConversion);
@@ -81,12 +81,12 @@ namespace ClientConvertisseurV2.ViewModels
 
         public void ActionSetConversion()
         {
-            if (MontantDevise <= 0)
+            if (MontantEuros <= 0)
                 MessageBoxAsync("Le montant initial doit être supérieur à 0", "Error !");
             else if (Devise is null)
                 MessageBoxAsync("Veuillez sélectionner une devise", "Error !");
             else
-                MontantEuros = MontantDevise / Devise.Taux;
+                MontantDevise = MontantEuros / Devise.Taux;
         }
 
         public async void GetDataOnLoadAsync()
