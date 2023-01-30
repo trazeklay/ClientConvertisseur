@@ -58,7 +58,7 @@
             Grid.Row="4"
             Width="300"
             Margin="0,25"
-            Click="onBtnConvertir_Click"
+            Command="{Binding btnSetConversion}"
             Content="Convertir"
             FontSize="25"
             RelativePanel.AlignHorizontalCenterWithPanel="True"
