@@ -105,6 +105,7 @@ namespace ClientConvertisseurV1.Views
         private async void MessageBoxAsync(string content, string title)
         {
             ContentDialog dialog = new ContentDialog();
+            dialog.XamlRoot = this.Content.XamlRoot;
             dialog.Title = title;
             dialog.Content = content;
             dialog.CloseButtonText = "OK";
@@ -115,7 +116,12 @@ namespace ClientConvertisseurV1.Views
 
         protected void onBtnConvertir_Click(object sender, RoutedEventArgs e)
         {
-            MontantDevise = MontantEuros * Devise.Taux;
+            if (MontantDevise <= 0)
+                MessageBoxAsync("Le montant initial doit être supérieur à 0", "Error !");
+            else if(Devise is null)
+                MessageBoxAsync("Veuillez sélectionner une devise", "Error !");
+            else
+                MontantDevise = MontantEuros * Devise.Taux;
         }
     }
 }
