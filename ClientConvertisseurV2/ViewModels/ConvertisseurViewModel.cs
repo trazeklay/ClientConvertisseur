@@ -15,7 +15,7 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace ClientConvertisseurV2.ViewModels
 {
-    public abstract class ConvertisseurViewModel: INotifyPropertyChanged
+    public abstract class ConvertisseurViewModel: ObservableObject, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
         protected void OnPropertyChanged(string name)
