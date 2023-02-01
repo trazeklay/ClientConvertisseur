@@ -15,17 +15,8 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace ClientConvertisseurV2.ViewModels
 {
-    public abstract class ConvertisseurViewModel: ObservableObject, INotifyPropertyChanged
+    public abstract class ConvertisseurViewModel: ObservableObject
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
-        protected void OnPropertyChanged(string name)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
-            }
-        }
 
         protected ObservableCollection<Devise> lesDevises;
         public ObservableCollection<Devise> LesDevises
@@ -34,7 +25,7 @@ namespace ClientConvertisseurV2.ViewModels
             set
             {
                 lesDevises = value;
-                OnPropertyChanged(nameof(LesDevises));
+                OnPropertyChanged();
             }
         }
 
@@ -45,7 +36,7 @@ namespace ClientConvertisseurV2.ViewModels
             set
             {
                 montantEuros = value;
-                OnPropertyChanged(nameof(MontantEuros));
+                OnPropertyChanged();
             }
         }
 
@@ -56,7 +47,7 @@ namespace ClientConvertisseurV2.ViewModels
             set
             {
                 devise = value;
-                OnPropertyChanged(nameof(Devise));
+                OnPropertyChanged();
             }
         }
 
@@ -67,7 +58,7 @@ namespace ClientConvertisseurV2.ViewModels
             set
             {
                 montantDevise = value;
-                OnPropertyChanged(nameof(MontantDevise));
+                OnPropertyChanged();
             }
         }
 
